@@ -1,6 +1,6 @@
 import uuid #Genere des id uniques
 import numpy as np  #Pour les distributions statisiques
-import pandas as pd #Pour construire le datframe et l'exporter en csv
+import pandas as pd #Pour construire le dataframe et l'exporter en csv
 from faker import Faker #Genere des donnees fictives realistes
 from datetime import datetime, timedelta
 import random
