@@ -1,0 +1,161 @@
+[0m16:33:48.920992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E73B96F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E73A6F740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E73A6C4A0>]}
+
+
+============================== 16:33:48.940929 | 9ce8dae9-8efb-4b7a-8873-7ed021e48235 ==============================
+[0m16:33:48.940929 [info ] [MainThread]: Running with dbt=1.12.5
+[0m16:33:48.940929 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Smart Business\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'hints_enabled': 'True', 'invocation_command': 'dbt init dbt_project', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m16:33:49.324090 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\Smart Business\.dbt
+[0m16:33:49.330192 [info ] [MainThread]: A project called dbt_project already exists here.
+[0m16:33:49.333829 [debug] [MainThread]: Command `dbt init` succeeded at 16:33:49.333264 after 0.84 seconds
+[0m16:33:49.334978 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E75440590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E7559E240>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018E7559E2A0>]}
+[0m16:33:49.336731 [debug] [MainThread]: Flushing usage events
+[0m16:33:51.793557 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:34:21.216390 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711E929B80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711E928CE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711E928860>]}
+
+
+============================== 16:34:21.224732 | a26b64ec-bec6-4345-9dda-1fbba215b983 ==============================
+[0m16:34:21.224732 [info ] [MainThread]: Running with dbt=1.12.5
+[0m16:34:21.224732 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Smart Business\\.dbt', 'invocation_command': 'dbt init dbt_project', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m16:34:21.290361 [debug] [MainThread]: Starter project path: C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m16:34:21.368608 [info ] [MainThread]: Setting up your profile.
+[0m16:36:50.566892 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+
+[0m16:36:50.579897 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 198, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 144, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\cli\main.py", line 504, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\task\init.py", line 363, in run
+    self.setup_profile(profile_name)
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\task\init.py", line 265, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\task\init.py", line 182, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\task\init.py", line 166, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\task\init.py", line 132, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\click\termui.py", line 262, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\mobile-money-pipeline\venv\Lib\site-packages\click\termui.py", line 245, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m16:36:50.586192 [debug] [MainThread]: Command `dbt init` failed at 16:36:50.585616 after 149.76 seconds
+[0m16:36:50.588195 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711C965160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711EA23EC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002711E99E2A0>]}
+[0m16:36:50.590645 [debug] [MainThread]: Flushing usage events
+[0m16:36:52.666202 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:37:12.128605 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028948A57DA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002894D62B8F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002894A9848C0>]}
+
+
+============================== 16:37:12.137819 | 6268bf38-ca34-4fed-b0a2-31a3b337ada5 ==============================
+[0m16:37:12.137819 [info ] [MainThread]: Running with dbt=1.12.5
+[0m16:37:12.137819 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Smart Business\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init dbt_project', 'log_path': 'logs'}
+[0m16:37:12.218492 [debug] [MainThread]: Starter project path: C:\mobile-money-pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m16:37:12.285399 [info ] [MainThread]: Setting up your profile.
+[0m16:38:24.975425 [info ] [MainThread]: Profile dbt_project written to C:\Users\Smart Business\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
+[0m16:38:25.066201 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m16:38:25.066201 [info ] [MainThread]: dbt version: 1.12.5
+[0m16:38:25.066201 [info ] [MainThread]: python version: 3.12.10
+[0m16:38:25.066201 [info ] [MainThread]: python path: C:\mobile-money-pipeline\venv\Scripts\python.exe
+[0m16:38:25.066201 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m16:38:25.172694 [info ] [MainThread]: Using profiles dir at C:\Users\Smart Business\.dbt
+[0m16:38:25.172694 [info ] [MainThread]: Using profiles.yml file at C:\Users\Smart Business\.dbt\profiles.yml
+[0m16:38:25.172694 [info ] [MainThread]: Using dbt_project.yml file at C:\mobile-money-pipeline\dbt_project\dbt_project.yml
+[0m16:38:25.198049 [info ] [MainThread]: adapter type: postgres
+[0m16:38:25.198049 [info ] [MainThread]: adapter version: 1.11.0
+[0m16:38:25.460384 [info ] [MainThread]: Configuration:
+[0m16:38:25.461593 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:38:25.463608 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m16:38:25.463608 [info ] [MainThread]: Required dependencies:
+[0m16:38:25.465627 [debug] [MainThread]: Executing "git --help"
+[0m16:38:25.603692 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:38:25.603692 [debug] [MainThread]: STDERR: "b''"
+[0m16:38:25.606220 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:38:25.606220 [info ] [MainThread]: Connection:
+[0m16:38:25.606220 [info ] [MainThread]:   host: localhost
+[0m16:38:25.610269 [info ] [MainThread]:   port: 5432
+[0m16:38:25.611078 [info ] [MainThread]:   user: airflow
+[0m16:38:25.612607 [info ] [MainThread]:   database: mobile_money_db
+[0m16:38:25.614363 [info ] [MainThread]:   schema: staging
+[0m16:38:25.617007 [info ] [MainThread]:   connect_timeout: 10
+[0m16:38:25.619030 [info ] [MainThread]:   role: None
+[0m16:38:25.619030 [info ] [MainThread]:   search_path: None
+[0m16:38:25.621059 [info ] [MainThread]:   keepalives_idle: 0
+[0m16:38:25.623490 [info ] [MainThread]:   sslmode: None
+[0m16:38:25.624507 [info ] [MainThread]:   sslcert: None
+[0m16:38:25.624507 [info ] [MainThread]:   sslkey: None
+[0m16:38:25.624507 [info ] [MainThread]:   sslrootcert: None
+[0m16:38:25.631418 [info ] [MainThread]:   application_name: dbt
+[0m16:38:25.632474 [info ] [MainThread]:   autocommit: False
+[0m16:38:25.632474 [info ] [MainThread]:   retries: 1
+[0m16:38:25.632474 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:38:26.722848 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m16:38:33.865118 [debug] [MainThread]: Using postgres connection "debug"
+[0m16:38:33.865118 [debug] [MainThread]: On debug: select 1 as id
+[0m16:38:33.865118 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:38:34.006804 [debug] [MainThread]: SQL status: SELECT 1 in 0.139 seconds
+[0m16:38:34.014173 [debug] [MainThread]: On debug: Close
+[0m16:38:34.014173 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m16:38:34.017013 [info ] [MainThread]: [32mAll checks passed![0m
+[0m16:38:34.017524 [info ] [MainThread]: Your new dbt project "dbt_project" was created!
+Initialized new project in C:\mobile-money-pipeline\dbt_project\dbt_project
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:38:34.019535 [debug] [MainThread]: Command `dbt init` succeeded at 16:38:34.019535 after 82.50 seconds
+[0m16:38:34.022531 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m16:38:34.024495 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002894DF403B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002894AB9BE60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002894ABCB9B0>]}
+[0m16:38:34.026512 [debug] [MainThread]: Flushing usage events
+[0m16:38:35.989298 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:39:56.110738 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB3554B260>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB358DA1E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB359B6060>]}
+
+
+============================== 18:39:56.119097 | fbd14066-2195-448b-a513-a82d06c4eaae ==============================
+[0m18:39:56.119097 [info ] [MainThread]: Running with dbt=1.12.5
+[0m18:39:56.119097 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Smart Business\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'log_path': 'logs'}
+[0m18:39:56.119097 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\mobile-money-pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:39:56.127168 [debug] [MainThread]: Command `dbt run` failed at 18:39:56.127168 after 0.50 seconds
+[0m18:39:56.127168 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB33EE3A70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB358DA1E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AB3760BE00>]}
+[0m18:39:56.127168 [debug] [MainThread]: Flushing usage events
+[0m18:39:57.885679 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:29:50.302983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F329DA00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F5A93770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F3A0BE30>]}
+
+
+============================== 22:29:50.315582 | 0d585ae1-7558-41e5-9f56-8164dcc989d6 ==============================
+[0m22:29:50.315582 [info ] [MainThread]: Running with dbt=1.12.5
+[0m22:29:50.317646 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Smart Business\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m22:29:50.320285 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\mobile-money-pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m22:29:50.322428 [debug] [MainThread]: Command `dbt run` failed at 22:29:50.322428 after 0.44 seconds
+[0m22:29:50.324618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F319DE80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F5A93770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000203F329DA00>]}
+[0m22:29:50.324618 [debug] [MainThread]: Flushing usage events
+[0m22:29:52.564454 [debug] [MainThread]: An error was encountered while trying to flush usage events

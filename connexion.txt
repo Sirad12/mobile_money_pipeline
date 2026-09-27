@@ -1,0 +1,7 @@
+docker-compose run --rm airflow-webserver airflow users create \
+  --username admin \
+  --firstname Sira \
+  --lastname Dia \
+  --role Admin \
+  --email siradia@example.com \
+  --password admin

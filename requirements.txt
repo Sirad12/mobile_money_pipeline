@@ -1,0 +1,6 @@
+pandas 
+numpy
+faker
+psycopg2-binary # le driver Python pour parler à Postgres
+sqlalchemy
+dbt-postgres

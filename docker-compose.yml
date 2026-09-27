@@ -1,0 +1,68 @@
+#La version du docker compose qu'on utilise
+version: '3.8'
+
+#Décrit les conteneurs qu'on va démarrer
+services :
+  postgres :
+    image: postgres:15 #L'image officielle de POSTGRES version 15 disponible depuis Docker Hub
+    container_name: mm_postgres
+    environment: #Les variables qui configurent Postgres au démarrage
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow_db #métadonnées internes d'Airflow
+    ports: #Mappe le port 5432 du conteneur vers le port 5432 de cette machine
+      - "5432:5432"
+    volumes: #Essentiel : sans ça, toutes les données Postgres disparaissent à chaque fois qu"on arrête le conteneur
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_init:/docker-entrypoint-initdb.d #Au premier démarrage, Postgres va scanner ce dossier et exécuter create_databases.sql, ce qui créera mobile_money_db en plus de airflow_db
+
+  airflow-webserver:
+    build: . #On construit l'image à partir du Dockerfile
+    container_name: mm_airflow_webserver
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor #définit comment Airflow exécute les tâches
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db #la chaîne de connexion vers Postgres
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false' #évite qu'Airflow charge des dizaines de DAGs d'exemple qui polluent l'interface
+      DB_HOST: postgres
+    volumes:
+      - ./dags:/opt/airflow/dags #relie le dossier local dags/ (celui qu'on a créé) au dossier où Airflow va chercher ses DAGs dans le conteneur.
+      - ./data_generation:/opt/airflow/data_generation
+    ports:
+      - "8080:8080" #pour accéder à l'interface web d'Airflow depuis ton navigateur
+    command: webserver #précise quelle commande Airflow lancer dans ce conteneur
+
+  airflow-scheduler:
+    build: .
+    container_name: mm_airflow_scheduler
+    depends_on:
+      - postgres
+    environment:
+       AIRFLOW__CORE__EXECUTOR: LocalExecutor
+       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow_db
+       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+       DB_HOST: postgres
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data_generation:/opt/airflow/data_generation
+    command: scheduler
+
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: mm_metabase
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase_db
+      MB_DB_PORT: 5432
+      MB_DB_USER: airflow
+      MB_DB_PASS: airflow
+      MB_DB_HOST: postgres
+
+volumes:
+  postgres_data:
